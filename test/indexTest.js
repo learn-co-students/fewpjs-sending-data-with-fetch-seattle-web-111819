@@ -67,10 +67,9 @@ describe( "submitData()", () => {
     let email = "sam@sam.com"
 
     await submitData( name, email )
-
-    expect( document.body.innerHTML )
-      .to.include( rando )
-  } );
+    setTimeout(() => expect( document.body.innerHTML )
+      .to.include( rando ), 500)
+  });
 
   it( "handles a failed POST request using catch, appends the error message to the DOM", async function () {
     let message = 'Unauthorized Access'
@@ -85,7 +84,7 @@ describe( "submitData()", () => {
     let email = "jim@jim.com"
 
     await submitData( name, email )
-    expect( document.body.innerHTML )
-      .to.include( message )
+    setTimeout(() => expect( document.body.innerHTML )
+      .to.include( message ), 500)
   } )
 } )
